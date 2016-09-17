@@ -14,14 +14,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var minNumber: UILabel!
     @IBOutlet weak var maxNumber: UILabel!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var sliderValue: UILabel!
+    
+    let converter = NumberConverter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.orientationChanged), name: UIDeviceOrientationDidChangeNotification, object: nil)
-
         self.setConstraints()
+        self.romanResult.text = "D"
+        
         
     }
+    
+    @IBAction func sliderValueChanged(sender: AnyObject) {
+        self.romanResult.text = self.converter.convertNumberToRomanNumber(Int(self.slider.value))
+        self.sliderValue.text = "\(Int(self.slider.value))"
+    }
+    
+//    @IBAction func sliderValueSet(sender: AnyObject) {
+//        self.romanResult.text = self.converter.convertNumberToRomanNumber(Int(self.slider.value))
+//    }
     
     func orientationChanged() {
         if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
@@ -66,6 +79,14 @@ class ViewController: UIViewController {
         self.romanResult.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
         self.romanResult.heightAnchor.constraintEqualToConstant(100).active = true
         self.romanResult.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.95).active = true
+        
+        // set sliderValue label
+        self.sliderValue.removeConstraints(self.sliderValue.constraints)
+        self.sliderValue.translatesAutoresizingMaskIntoConstraints = false
+        self.sliderValue.topAnchor.constraintEqualToAnchor(self.slider.bottomAnchor, constant: 50).active = true
+        self.sliderValue.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        self.sliderValue.heightAnchor.constraintEqualToConstant(100).active = true
+        self.sliderValue.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.95).active = true
     }
     
     override func didReceiveMemoryWarning() {
