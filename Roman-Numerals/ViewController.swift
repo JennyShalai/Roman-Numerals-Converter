@@ -12,7 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let roman = NumberConverter()
+        print(roman.convertNumberToRomanNumber(234))
         
     }
 
