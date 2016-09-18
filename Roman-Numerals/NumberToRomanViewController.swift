@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NumberToRomanViewController: UIViewController {
 
     @IBOutlet weak var romanResult: UILabel!
     @IBOutlet weak var minNumber: UILabel!
@@ -20,39 +20,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.orientationChanged), name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NumberToRomanViewController.orientationChanged), name: UIDeviceOrientationDidChangeNotification, object: nil)
         self.setConstraints()
         self.romanResult.text = "D"
-        
-        
-       // let testOutput1 = converter.convertRomanNumberToNumber("DCCCLXXXVIII")
-        let testOutput2 = converter.convertRomanNumberToNumber("CMLxXDV")
-//        let testOutput3 = converter.convertRomanNumberToNumber("XLIV")
-//        let testOutput4 = converter.convertRomanNumberToNumber("L")
-//        let testOutput5 = converter.convertRomanNumberToNumber("LIII")
-//        let testOutput6 = converter.convertRomanNumberToNumber("LIX")
-//        let testOutput7 = converter.convertRomanNumberToNumber("LXXIII")
-//        let testOutput8 = converter.convertRomanNumberToNumber("LXXX")
-//        let testOutput9 = converter.convertRomanNumberToNumber("XIX")
-//        let testOutput10 = converter.convertRomanNumberToNumber("XX")
-//        let testOutput11 = converter.convertRomanNumberToNumber("XXI")
-//        let testOutput14 = converter.convertRomanNumberToNumber("XXIV")
-//        let testOutput16 = converter.convertRomanNumberToNumber("XXVI")
-      //  print(testOutput1)
-        print(testOutput2)
-//        print(testOutput3)
-//        print(testOutput4)
-//        print(testOutput5)
-//        print(testOutput6)
-//        print(testOutput7)
-//        print(testOutput8)
-//        print(testOutput9)
-//        print(testOutput10)
-//        print(testOutput11)
-//        print(testOutput14)
-//        print(testOutput16)
-        
-        
+        self.romanResult.text = "500"
     }
     
     @IBAction func sliderValueChanged(sender: AnyObject) {
@@ -60,9 +31,6 @@ class ViewController: UIViewController {
         self.sliderValue.text = "\(Int(self.slider.value))"
     }
     
-//    @IBAction func sliderValueSet(sender: AnyObject) {
-//        self.romanResult.text = self.converter.convertNumberToRomanNumber(Int(self.slider.value))
-//    }
     
     func orientationChanged() {
         if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
@@ -74,8 +42,8 @@ class ViewController: UIViewController {
     }
 
     func setConstraints() {
-        self.view.removeConstraints(self.view.constraints)
-        self.view.translatesAutoresizingMaskIntoConstraints = false
+        //self.view.removeConstraints(self.view.constraints)
+        //self.view.translatesAutoresizingMaskIntoConstraints = false
         
         // set slider constraints
         self.slider.removeConstraints(self.slider.constraints)

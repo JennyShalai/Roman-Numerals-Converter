@@ -10,21 +10,20 @@ import Foundation
 
 class NumberConverter {
     
-    // PUBLIC METHOD // convertation number into Roman number
+    // PUBLIC METHOD // convertation number into Roman string
     func convertNumberToRomanNumber(number: Int) -> String {
         let arrayDigits = self.convertNumberToArrayOfDigits(number)
         let convertNumber = self.convertArrayOfDigitsToRomanNumber(arrayDigits)
         return convertNumber
     }
     
-    // PUBLIC METHOD // convertation number Roman into number
+    // PUBLIC METHOD // convertation Roman string into number
     func convertRomanNumberToNumber(romanNumber: String) -> Int {
         
         var number: Int = 0
 
         let romanArray = Array(romanNumber.uppercaseString.characters.reverse())
         
-        // var isOne = false
         var isFive = false
         var isTen = false
         var isFifty = false
@@ -96,7 +95,7 @@ class NumberConverter {
         }
         
         if number > 1000 {
-            print("Converter doe not operate with unbers greater then 1000 or there is incorrect roman numeral")
+            print("Converter doe not operate with numbers greater than 1000 or there is incorrect roman numeral")
             return 9999
         }
         
