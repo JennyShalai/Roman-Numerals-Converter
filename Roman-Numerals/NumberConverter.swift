@@ -24,30 +24,62 @@ class NumberConverter {
 
         let romanArray = Array(romanNumber.characters.reverse())
         
-        var isOne = false
+        // var isOne = false
         var isFive = false
         var isTen = false
         var isFifty = false
+        var isHundred = false
+        var isFiveHundred = false
+        var isThousand = false
         
         for char in romanArray {
+            
+            if char != "I" || char != "V" || char != "X" || char != "L" || char != "C" || char != "D" || char != "M"{
+                print("There is invalid roman numeral!")
+                return 0
+            }
+            
+            if char == "M" {
+                isThousand = true
+                number += 1000
+            }
+            
+            if char == "D" {
+                isFiveHundred = true
+                number += 500
+            }
         
+            if char == "C" && isThousand {
+                isThousand = false
+                number -= 100
+            } else if char == "C" && isFiveHundred {
+                isFiveHundred = false
+                number -= 100
+            } else if char == "C" {
+                isHundred = true
+                number += 100
+            }
+            
             if char == "L" {
                 isFifty = true
                 number += 50
             }
             
-            if char == "X" && isFifty {
+            if char == "X" && isHundred {
+                isHundred = false
+                number -= 10
+            } else if char == "X" && isFifty {
                 isFifty = false
                 number -= 10
-            } else {
+            } else if char == "X" {
                 isTen = true
-                isOne = false
+                isFive = false
                 number += 10
             }
             
             if char == "V" {
                 isFive = true
-                isOne = false
+                //isOne = false
                 number += 5
             }
             
@@ -61,18 +93,7 @@ class NumberConverter {
                // isOne = true
                 number += 1
             }
-            
-           
-            
-           
-        
-        
         }
-        
-        print(romanArray)
-        
-        
-        
         return number
     }
     
