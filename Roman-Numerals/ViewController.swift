@@ -25,6 +25,34 @@ class ViewController: UIViewController {
         self.romanResult.text = "D"
         
         
+        let testOutput1 = converter.convertRomanNumberToNumber("XI")
+        let testOutput2 = converter.convertRomanNumberToNumber("XII")
+        let testOutput3 = converter.convertRomanNumberToNumber("XIII")
+        let testOutput4 = converter.convertRomanNumberToNumber("XIV")
+        let testOutput5 = converter.convertRomanNumberToNumber("XV")
+        let testOutput6 = converter.convertRomanNumberToNumber("XVI")
+        let testOutput7 = converter.convertRomanNumberToNumber("XVII")
+        let testOutput8 = converter.convertRomanNumberToNumber("XVIII")
+        let testOutput9 = converter.convertRomanNumberToNumber("XIX")
+        let testOutput10 = converter.convertRomanNumberToNumber("XX")
+        let testOutput11 = converter.convertRomanNumberToNumber("XXI")
+        let testOutput14 = converter.convertRomanNumberToNumber("XXIV")
+        let testOutput16 = converter.convertRomanNumberToNumber("XXVI")
+        print(testOutput1)
+        print(testOutput2)
+        print(testOutput3)
+        print(testOutput4)
+        print(testOutput5)
+        print(testOutput6)
+        print(testOutput7)
+        print(testOutput8)
+        print(testOutput9)
+        print(testOutput10)
+        print(testOutput11)
+        print(testOutput14)
+        print(testOutput16)
+        
+        
     }
     
     @IBAction func sliderValueChanged(sender: AnyObject) {

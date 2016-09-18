@@ -9,12 +9,75 @@
 import Foundation
 
 class NumberConverter {
+    
     // PUBLIC METHOD // convertation number into Roman number
     func convertNumberToRomanNumber(number: Int) -> String {
         let arrayDigits = self.convertNumberToArrayOfDigits(number)
         let convertNumber = self.convertArrayOfDigitsToRomanNumber(arrayDigits)
         return convertNumber
     }
+    
+    // PUBLIC METHOD // convertation number Roman into number
+    func convertRomanNumberToNumber(romanNumber: String) -> Int {
+        
+        var number: Int = 0
+
+        let romanArray = Array(romanNumber.characters.reverse())
+        
+        var isOne = false
+        var isFive = false
+        var isTen = false
+        var isFifty = false
+        
+        for char in romanArray {
+        
+            if char == "L" {
+                isFifty = true
+                number += 50
+            }
+            
+            if char == "X" && isFifty {
+                isFifty = false
+                number -= 10
+            } else {
+                isTen = true
+                isOne = false
+                number += 10
+            }
+            
+            if char == "V" {
+                isFive = true
+                isOne = false
+                number += 5
+            }
+            
+            if char == "I" && isTen {
+                isTen = false
+                number -= 1
+            } else if char == "I" && isFive {
+                isFive = false
+                number -= 1
+            } else if char == "I" {
+               // isOne = true
+                number += 1
+            }
+            
+           
+            
+           
+        
+        
+        }
+        
+        print(romanArray)
+        
+        
+        
+        return number
+    }
+    
+    
+    
     
     // splite number into single digits
     private func convertNumberToArrayOfDigits(number: Int) -> [Int] {
