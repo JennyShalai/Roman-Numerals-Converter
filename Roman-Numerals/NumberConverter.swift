@@ -22,7 +22,7 @@ class NumberConverter {
         
         var number: Int = 0
 
-        let romanArray = Array(romanNumber.characters.reverse())
+        let romanArray = Array(romanNumber.uppercaseString.characters.reverse())
         
         // var isOne = false
         var isFive = false
@@ -34,8 +34,8 @@ class NumberConverter {
         
         for char in romanArray {
             
-            if char != "I" || char != "V" || char != "X" || char != "L" || char != "C" || char != "D" || char != "M"{
-                print("There is invalid roman numeral!")
+            if char != "I" && char != "V" && char != "X" && char != "L" && char != "C" && char != "D" && char != "M"{
+                print("There is invalid \(char) roman numeral!")
                 return 0
             }
             
@@ -94,6 +94,12 @@ class NumberConverter {
                 number += 1
             }
         }
+        
+        if number > 1000 {
+            print("Converter doe not operate with unbers greater then 1000 or there is incorrect roman numeral")
+            return 9999
+        }
+        
         return number
     }
     

@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         
         
        // let testOutput1 = converter.convertRomanNumberToNumber("DCCCLXXXVIII")
-        let testOutput2 = converter.convertRomanNumberToNumber("CMLXV")
+        let testOutput2 = converter.convertRomanNumberToNumber("CMLxXDV")
 //        let testOutput3 = converter.convertRomanNumberToNumber("XLIV")
 //        let testOutput4 = converter.convertRomanNumberToNumber("L")
 //        let testOutput5 = converter.convertRomanNumberToNumber("LIII")
