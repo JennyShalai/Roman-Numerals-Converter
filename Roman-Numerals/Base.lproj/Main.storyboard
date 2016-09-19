@@ -17,39 +17,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCX-W2-2aw">
-                                <rect key="frame" x="69" y="225" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="gos-2E-n9K"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubp-P6-dfR">
-                                <rect key="frame" x="205" y="225" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.98431372549999996" green="0.81176470590000005" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="fM5-fE-802" kind="show" id="O5E-L7-Sa2"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O01-ah-6SS">
+                                <rect key="frame" x="0.0" y="0.0" width="134" height="151"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCX-W2-2aw">
+                                        <rect key="frame" x="49" y="67" width="46" height="30"/>
+                                        <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="numToRomanButtonTapped:" destination="hgJ-gY-TfR" eventType="touchUpInside" id="fyu-96-462"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wos-1d-UeR">
+                                <rect key="frame" x="158" y="68" width="142" height="154"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubp-P6-dfR">
+                                        <rect key="frame" x="48" y="69" width="46" height="30"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.81176470590000005" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="romToNumberButtonTapped:" destination="hgJ-gY-TfR" eventType="touchUpInside" id="9q7-z4-q4g"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="leftView" destination="O01-ah-6SS" id="m5H-3x-U5g"/>
                         <outlet property="numToRoman" destination="FCX-W2-2aw" id="ynW-YE-50N"/>
+                        <outlet property="rightView" destination="wos-1d-UeR" id="Xvn-kO-6VX"/>
                         <outlet property="romToNumber" destination="ubp-P6-dfR" id="cc3-Px-Pdq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gn8-Ih-f48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="247"/>
+            <point key="canvasLocation" x="196" y="34"/>
         </scene>
         <!--Number To Roman View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="NumberToRomanViewController" customModule="Roman_Numerals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NumberToRomanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="NumberToRomanViewController" customModule="Roman_Numerals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -58,36 +72,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZ5-6G-iHf" userLabel="romanNumber">
-                                <rect key="frame" x="139" y="102" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYV-Xu-a91">
-                                <rect key="frame" x="61" y="243" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="1" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="UH5-Yi-U69" userLabel="values">
-                                <rect key="frame" x="101" y="269" width="118" height="31"/>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zir-3n-3X4"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8m-El-x3P" userLabel="1000">
-                                <rect key="frame" x="215" y="240" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHP-Al-9ir" userLabel="romanNumber">
-                                <rect key="frame" x="139" y="372" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTq-Y0-3GF">
+                                <rect key="frame" x="40" y="177" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Roman String" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZ5-6G-iHf" userLabel="romanNumber">
+                                        <rect key="frame" x="68" y="54" width="104" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYV-Xu-a91">
+                                        <rect key="frame" x="99" y="54" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="1" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="UH5-Yi-U69" userLabel="values">
+                                        <rect key="frame" x="61" y="49" width="118" height="31"/>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zir-3n-3X4"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHP-Al-9ir" userLabel="number">
+                                        <rect key="frame" x="89" y="87" width="62" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8m-El-x3P" userLabel="1000">
+                                        <rect key="frame" x="99" y="14" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -98,6 +118,7 @@
                         <outlet property="romanResult" destination="sZ5-6G-iHf" id="H59-Y4-QOH"/>
                         <outlet property="slider" destination="UH5-Yi-U69" id="doH-Uu-QYY"/>
                         <outlet property="sliderValue" destination="JHP-Al-9ir" id="05r-Jf-PqW"/>
+                        <outlet property="wrapperView" destination="HTq-Y0-3GF" id="LGT-nj-jcF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -107,7 +128,7 @@
         <!--Roman To Number View Controller-->
         <scene sceneID="avV-Up-Pba">
             <objects>
-                <viewController id="fM5-fE-802" customClass="RomanToNumberViewController" customModule="Roman_Numerals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RomanToNumberViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fM5-fE-802" customClass="RomanToNumberViewController" customModule="Roman_Numerals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7n9-oZ-Kwr"/>
                         <viewControllerLayoutGuide type="bottom" id="nkd-qQ-NaM"/>
@@ -115,13 +136,130 @@
                     <view key="view" contentMode="scaleToFill" id="95g-cC-ZF3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="19k-gt-vY5" userLabel="wrapperView">
+                                <rect key="frame" x="0.0" y="0.0" width="243" height="384"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Roman Input" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Yd7-5f-CYM" userLabel="romanInput">
+                                        <rect key="frame" x="139" y="47" width="42" height="21"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number Output" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDl-il-pp7" userLabel="numberOutput">
+                                        <rect key="frame" x="139" y="96" width="42" height="21"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.81176470590000005" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cp9-h4-OxD">
+                                        <rect key="frame" x="125" y="401" width="71" height="30"/>
+                                        <state key="normal" title="CONVERT"/>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Nd-GB-9VG">
+                                        <rect key="frame" x="28" y="246" width="90" height="90"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vQ1-8X-5q1">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="90"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBR-QU-JxY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" title="I"/>
+                                                        <connections>
+                                                            <action selector="iTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="wc1-XO-ebO"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqE-qL-CJ4">
+                                                        <rect key="frame" x="0.0" y="30" width="30" height="30"/>
+                                                        <state key="normal" title="V"/>
+                                                        <connections>
+                                                            <action selector="vTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="uU1-Dr-dau"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2t9-Ox-Pk8">
+                                                        <rect key="frame" x="0.0" y="60" width="30" height="30"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="xTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="AcH-dW-Nmm"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gBM-id-GH3">
+                                                <rect key="frame" x="30" y="0.0" width="30" height="90"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32O-fN-UmJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" title="L"/>
+                                                        <connections>
+                                                            <action selector="lTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="ztO-Sv-zm8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrN-UV-6z6">
+                                                        <rect key="frame" x="0.0" y="30" width="30" height="30"/>
+                                                        <state key="normal" title="C"/>
+                                                        <connections>
+                                                            <action selector="cTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="cIe-ah-gfv"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3b-Vm-Bhp">
+                                                        <rect key="frame" x="0.0" y="60" width="30" height="30"/>
+                                                        <state key="normal" title="D"/>
+                                                        <connections>
+                                                            <action selector="dTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="8Ei-7B-uwF"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kqf-G9-VzA">
+                                                <rect key="frame" x="60" y="0.0" width="30" height="90"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BP-LJ-3Ne">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" title="M"/>
+                                                        <connections>
+                                                            <action selector="mTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="utj-2t-XX0"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srg-Xv-c2r">
+                                                        <rect key="frame" x="0.0" y="30" width="30" height="30"/>
+                                                        <state key="normal" title="&lt;-"/>
+                                                        <connections>
+                                                            <action selector="delTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="CYS-pr-OB2"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eb6-gB-Qgz">
+                                                        <rect key="frame" x="0.0" y="60" width="30" height="30"/>
+                                                        <connections>
+                                                            <action selector="infoTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="1tk-tc-dYe"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.46218681335449219" green="0.94240599870681763" blue="0.080979548394680023" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </stackView>
+                                </subviews>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="numberOutput" destination="HDl-il-pp7" id="nyn-sx-DWf"/>
+                        <outlet property="romanInput" destination="Yd7-5f-CYM" id="fAP-gU-8il"/>
+                        <outlet property="wrapperStackView" destination="1Nd-GB-9VG" id="z3X-ug-3wV"/>
+                        <outlet property="wrapperView" destination="19k-gt-vY5" id="W4R-Mh-zwK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aki-Fm-YUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533" y="587"/>
+            <point key="canvasLocation" x="870" y="34"/>
         </scene>
     </scenes>
 </document>

@@ -20,91 +20,106 @@ class NumberConverter {
     // PUBLIC METHOD // convertation Roman string into number
     func convertRomanNumberToNumber(romanNumber: String) -> Int {
         
-        var number: Int = 0
-
-        let romanArray = Array(romanNumber.uppercaseString.characters.reverse())
+        // normalise roman string
+        let romanString = romanNumber.uppercaseString
         
-        var isFive = false
-        var isTen = false
-        var isFifty = false
-        var isHundred = false
-        var isFiveHundred = false
-        var isThousand = false
+        // roman string validator
+        let romanRegularExpression = "^M{0,1}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"
+        let romanPredicate = NSPredicate(format: "SELF MATCHES %@", romanRegularExpression)
         
-        for char in romanArray {
-            
-            if char != "I" && char != "V" && char != "X" && char != "L" && char != "C" && char != "D" && char != "M"{
-                print("There is invalid \(char) roman numeral!")
-                return 0
-            }
-            
-            if char == "M" {
-                isThousand = true
-                number += 1000
-            }
-            
-            if char == "D" {
-                isFiveHundred = true
-                number += 500
-            }
         
-            if char == "C" && isThousand {
-                isThousand = false
-                number -= 100
-            } else if char == "C" && isFiveHundred {
-                isFiveHundred = false
-                number -= 100
-            } else if char == "C" {
-                isHundred = true
-                number += 100
+        // if input roman string is valid do:
+        if romanPredicate.evaluateWithObject(romanNumber) {
+            
+            // result
+            var number: Int = 0
+            // split string into chars
+            let romanArray = Array(romanString.characters.reverse())
+            
+            var isFive = false
+            var isTen = false
+            var isFifty = false
+            var isHundred = false
+            var isFiveHundred = false
+            var isThousand = false
+            
+            for char in romanArray {
+                
+                if char != "I" && char != "V" && char != "X" && char != "L" && char != "C" && char != "D" && char != "M"{
+                    print("There is invalid \(char) roman numeral!")
+                    return 0
+                }
+                
+                if char == "M" {
+                    isThousand = true
+                    number += 1000
+                }
+                
+                if char == "D" {
+                    isFiveHundred = true
+                    number += 500
+                }
+                
+                if char == "C" && isThousand {
+                    isThousand = false
+                    number -= 100
+                } else if char == "C" && isFiveHundred {
+                    isFiveHundred = false
+                    number -= 100
+                } else if char == "C" {
+                    isHundred = true
+                    number += 100
+                }
+                
+                if char == "L" {
+                    isFifty = true
+                    number += 50
+                }
+                
+                if char == "X" && isHundred {
+                    isHundred = false
+                    number -= 10
+                } else if char == "X" && isFifty {
+                    isFifty = false
+                    number -= 10
+                } else if char == "X" {
+                    isTen = true
+                    isFive = false
+                    number += 10
+                }
+                
+                if char == "V" {
+                    isFive = true
+                    //isOne = false
+                    number += 5
+                }
+                
+                if char == "I" && isTen {
+                    isTen = false
+                    number -= 1
+                } else if char == "I" && isFive {
+                    isFive = false
+                    number -= 1
+                } else if char == "I" {
+                    // isOne = true
+                    number += 1
+                }
             }
             
-            if char == "L" {
-                isFifty = true
-                number += 50
+            if number > 1000 {
+                print("Converter does not operate with numbers greater than 1000 or there is incorrect roman numeral")
+                return 9999
             }
             
-            if char == "X" && isHundred {
-                isHundred = false
-                number -= 10
-            } else if char == "X" && isFifty {
-                isFifty = false
-                number -= 10
-            } else if char == "X" {
-                isTen = true
-                isFive = false
-                number += 10
-            }
+            return number
             
-            if char == "V" {
-                isFive = true
-                //isOne = false
-                number += 5
-            }
-            
-            if char == "I" && isTen {
-                isTen = false
-                number -= 1
-            } else if char == "I" && isFive {
-                isFive = false
-                number -= 1
-            } else if char == "I" {
-               // isOne = true
-                number += 1
-            }
-        }
-        
-        if number > 1000 {
-            print("Converter doe not operate with numbers greater than 1000 or there is incorrect roman numeral")
+        } else {
+            print("Not valid roman string")
             return 9999
         }
-        
-        return number
     }
     
-    
-    
-    
+
     // splite number into single digits
     private func convertNumberToArrayOfDigits(number: Int) -> [Int] {
         var num = number
