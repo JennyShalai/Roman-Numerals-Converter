@@ -156,7 +156,11 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cp9-h4-OxD">
                                         <rect key="frame" x="125" y="401" width="71" height="30"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="CONVERT"/>
+                                        <connections>
+                                            <action selector="convertTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="5fB-sO-NB6"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Nd-GB-9VG">
                                         <rect key="frame" x="28" y="246" width="90" height="90"/>
@@ -251,6 +255,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="convertButton" destination="Cp9-h4-OxD" id="lgn-2e-acK"/>
                         <outlet property="numberOutput" destination="HDl-il-pp7" id="nyn-sx-DWf"/>
                         <outlet property="romanInput" destination="Yd7-5f-CYM" id="fAP-gU-8il"/>
                         <outlet property="wrapperStackView" destination="1Nd-GB-9VG" id="z3X-ug-3wV"/>

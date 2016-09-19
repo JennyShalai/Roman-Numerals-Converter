@@ -14,6 +14,9 @@ class RomanToNumberViewController: UIViewController {
     @IBOutlet weak var wrapperStackView: UIStackView!
     @IBOutlet weak var romanInput: UILabel!
     @IBOutlet weak var numberOutput: UILabel!
+    @IBOutlet weak var convertButton: UIButton!
+    
+    let converter = NumberConverter()
     
     
     override func viewDidLoad() {
@@ -57,6 +60,14 @@ class RomanToNumberViewController: UIViewController {
         self.romanInput.bottomAnchor.constraintEqualToAnchor(self.numberOutput.topAnchor, constant: -5).active = true
         self.romanInput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
         self.romanInput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.2).active = true
+        
+        self.convertButton.removeConstraints(self.convertButton.constraints)
+        self.convertButton.translatesAutoresizingMaskIntoConstraints = false
+        self.convertButton.topAnchor.constraintEqualToAnchor(self.wrapperStackView.bottomAnchor, constant: 10).active = true
+        self.convertButton.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.convertButton.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
+        self.convertButton.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.5).active = true
+        
     
     }
     
@@ -125,8 +136,23 @@ class RomanToNumberViewController: UIViewController {
         }
     }
     
+    
+    
     @IBAction func infoTapped(sender: AnyObject) {
         
     }
+    
+    @IBAction func convertTapped(sender: AnyObject) {
+        let converterRespound = self.converter.convertRomanNumberToNumber(self.romanInput.text!)
+        
+        if converterRespound == 9999 {
+            self.numberOutput.text! = "Not valid number"
+        } else {
+            self.numberOutput.text! = "\(converterRespound)"
+        }
+    }
+    
+    
+    
     
 }
