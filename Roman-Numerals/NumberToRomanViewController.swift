@@ -22,7 +22,7 @@ class NumberToRomanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setConstraints()
-        self.numberInput.text = "Enter Number upto 3000"
+        self.numberInput.text = "Enter Number upto 2000"
         self.romanOutput.text = ""
         self.numberInput.adjustsFontSizeToFitWidth = true
         self.romanOutput.adjustsFontSizeToFitWidth = true
@@ -157,9 +157,8 @@ class NumberToRomanViewController: UIViewController {
     }
     
     @IBAction func zeroTapped(sender: AnyObject) {
-        self.romanOutput.text! = ""
-        if self.numberInput.text!.containsString("Enter") {
-            self.numberInput.text! = "0"
+        if self.numberInput.text!.containsString("Enter") || self.numberInput.text!.containsString("Zero") {
+            self.romanOutput.text! = "Zero can not be the firts!"
         } else {
             self.numberInput.text! += "0"
         }
@@ -167,22 +166,26 @@ class NumberToRomanViewController: UIViewController {
     
     @IBAction func deleteTapped(sender: AnyObject) {
         if !self.numberInput.text!.containsString("Enter") && self.numberInput.text!.characters.count == 1 {
-            self.numberInput.text! = "Enter Number upto 3000"
+            self.numberInput.text! = "Enter Number upto 2000"
+            self.romanOutput.text! = ""
         } else if !self.numberInput.text!.containsString("Enter") && self.numberInput.text!.characters.count > 0 {
             self.numberInput.text! = String(self.numberInput.text!.characters.dropLast())
         }
     }
     
     @IBAction func clearTapped(sender: AnyObject) {
-        self.numberInput.text! = "Enter Number upto 3000"
+        self.numberInput.text! = "Enter Number upto 2000"
         self.romanOutput.text! = ""
     }
     
     @IBAction func convertTapped(sender: AnyObject) {
         
         
-        if Int(self.numberInput.text!)! >= 4000 {
+        if Int(self.numberInput.text!)! >= 2000 {
             self.romanOutput.text = "Enter smaller number"
+        } else if Int(self.numberInput.text!)! == 0 {
+            self.romanOutput.text = "Zero is nothing"
+            self.numberInput.text! = ""
         } else {
             let converterRespound = self.converter.convertNumberToRomanNumber(Int(self.numberInput.text!)!)
 
