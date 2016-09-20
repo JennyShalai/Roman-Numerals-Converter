@@ -25,6 +25,7 @@ class RomanToNumberViewController: UIViewController {
         self.romanInput.text = "Enter Roman Number"
         self.numberOutput.text = ""
         self.romanInput.adjustsFontSizeToFitWidth = true
+        self.numberOutput.adjustsFontSizeToFitWidth = true
         
         
         
@@ -41,26 +42,26 @@ class RomanToNumberViewController: UIViewController {
         self.wrapperView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
         self.wrapperView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
         
-        self.wrapperStackView.removeConstraints(self.wrapperStackView.constraints)
-        self.wrapperStackView.translatesAutoresizingMaskIntoConstraints = false
-        self.wrapperStackView.topAnchor.constraintEqualToAnchor(self.wrapperView.centerYAnchor).active = true
-        self.wrapperStackView.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.60).active = true
-        self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor).active = true
+        self.romanInput.removeConstraints(self.romanInput.constraints)
+        self.romanInput.translatesAutoresizingMaskIntoConstraints = false
+        self.romanInput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.romanInput.topAnchor.constraintEqualToAnchor(self.wrapperView.topAnchor, constant: 25).active = true
+        self.romanInput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
+        self.romanInput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.15).active = true
         
         self.numberOutput.removeConstraints(self.numberOutput.constraints)
         self.numberOutput.translatesAutoresizingMaskIntoConstraints = false
         self.numberOutput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.numberOutput.bottomAnchor.constraintEqualToAnchor(self.wrapperView.centerYAnchor, constant: -5).active = true
+        self.numberOutput.topAnchor.constraintEqualToAnchor(self.romanInput.bottomAnchor, constant: 5).active = true
         self.numberOutput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
         self.numberOutput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.15).active = true
         
-        self.romanInput.removeConstraints(self.romanInput.constraints)
-        self.romanInput.translatesAutoresizingMaskIntoConstraints = false
-        self.romanInput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.romanInput.bottomAnchor.constraintEqualToAnchor(self.numberOutput.topAnchor, constant: -5).active = true
-        self.romanInput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
-        self.romanInput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.15).active = true
+        self.wrapperStackView.removeConstraints(self.wrapperStackView.constraints)
+        self.wrapperStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.wrapperStackView.topAnchor.constraintEqualToAnchor(self.numberOutput.bottomAnchor, constant: 20).active = true
+        self.wrapperStackView.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.4).active = true
+        self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier:  0.8).active = true
         
         self.convertButton.removeConstraints(self.convertButton.constraints)
         self.convertButton.translatesAutoresizingMaskIntoConstraints = false

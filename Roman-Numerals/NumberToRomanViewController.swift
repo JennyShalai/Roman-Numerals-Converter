@@ -21,13 +21,12 @@ class NumberToRomanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setConstraints()
+        self.numberInput.text = "Enter Number upto 3000"
+        self.romanOutput.text = ""
+        self.numberInput.adjustsFontSizeToFitWidth = true
+        self.romanOutput.adjustsFontSizeToFitWidth = true
        
-        
-       
-        
-
     }
     
 
@@ -43,36 +42,142 @@ class NumberToRomanViewController: UIViewController {
         self.wrapperView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
         self.wrapperView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
         
-        self.wrapperStackView.removeConstraints(self.wrapperStackView.constraints)
-        self.wrapperStackView.translatesAutoresizingMaskIntoConstraints = false
-        self.wrapperStackView.topAnchor.constraintEqualToAnchor(self.wrapperView.centerYAnchor).active = true
-        self.wrapperStackView.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.35).active = true
-        self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor).active = true
+        self.numberInput.removeConstraints(self.numberInput.constraints)
+        self.numberInput.translatesAutoresizingMaskIntoConstraints = false
+        self.numberInput.topAnchor.constraintEqualToAnchor(self.wrapperView.topAnchor, constant: 25).active = true
+        self.numberInput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.numberInput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
+        self.numberInput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
         
         self.romanOutput.removeConstraints(self.romanOutput.constraints)
         self.romanOutput.translatesAutoresizingMaskIntoConstraints = false
         self.romanOutput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.romanOutput.bottomAnchor.constraintEqualToAnchor(self.wrapperView.centerYAnchor, constant: -5).active = true
+        self.romanOutput.topAnchor.constraintEqualToAnchor(self.numberInput.bottomAnchor, constant: 5).active = true
         self.romanOutput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
-        self.romanOutput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.2).active = true
+        self.romanOutput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
+
+        self.wrapperStackView.removeConstraints(self.wrapperStackView.constraints)
+        self.wrapperStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.wrapperStackView.topAnchor.constraintEqualToAnchor(self.romanOutput.bottomAnchor, constant: 20).active = true
+        self.wrapperStackView.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.4).active = true
+        self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
         
-        self.numberInput.removeConstraints(self.numberInput.constraints)
-        self.numberInput.translatesAutoresizingMaskIntoConstraints = false
-        self.numberInput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.numberInput.bottomAnchor.constraintEqualToAnchor(self.romanOutput.topAnchor, constant: -5).active = true
-        self.numberInput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
-        self.numberInput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.2).active = true
         
         self.convertButton.removeConstraints(self.convertButton.constraints)
         self.convertButton.translatesAutoresizingMaskIntoConstraints = false
-        self.convertButton.topAnchor.constraintEqualToAnchor(self.wrapperStackView.bottomAnchor, constant: 10).active = true
+        self.convertButton.topAnchor.constraintEqualToAnchor(self.wrapperStackView.bottomAnchor, constant: 20).active = true
         self.convertButton.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
         self.convertButton.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
         self.convertButton.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.5).active = true
         
 
     }
+    
+    @IBAction func oneTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "1"
+        } else {
+            self.numberInput.text! += "1"
+        }
+    }
+    
+    
+    @IBAction func twoTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "2"
+        } else {
+            self.numberInput.text! += "2"
+        }
+    }
+    
+    @IBAction func threeTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "3"
+        } else {
+            self.numberInput.text! += "3"
+        }
+    }
+    
+    @IBAction func fourTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "4"
+        } else {
+            self.numberInput.text! += "4"
+        }
+    }
+    
+    @IBAction func fiveTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "5"
+        } else {
+            self.numberInput.text! += "5"
+        }
+    }
+    
+    @IBAction func sixTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "6"
+        } else {
+            self.numberInput.text! += "6"
+        }
+    }
+    @IBAction func sevenTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "7"
+        } else {
+            self.numberInput.text! += "7"
+        }
+    }
+    
+    @IBAction func eightTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "8"
+        } else {
+            self.numberInput.text! += "8"
+        }
+    }
+    
+    
+    @IBAction func nineTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "9"
+        } else {
+            self.numberInput.text! += "9"
+        }
+    }
+    
+    @IBAction func zeroTapped(sender: AnyObject) {
+        self.romanOutput.text! = ""
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "0"
+        } else {
+            self.numberInput.text! += "0"
+        }
+    }
+    
+    @IBAction func deleteTapped(sender: AnyObject) {
+        if !self.numberInput.text!.containsString("Enter") && self.numberInput.text!.characters.count == 1 {
+            self.numberInput.text! = "Enter Number upto 3000"
+        } else if !self.numberInput.text!.containsString("Enter") && self.numberInput.text!.characters.count > 0 {
+            self.numberInput.text! = String(self.numberInput.text!.characters.dropLast())
+        }
+    }
+    
+    @IBAction func clearTapped(sender: AnyObject) {
+        self.numberInput.text! = "Enter Number upto 3000"
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
