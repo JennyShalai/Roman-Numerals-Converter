@@ -158,7 +158,7 @@ class NumberToRomanViewController: UIViewController {
     
     @IBAction func zeroTapped(sender: AnyObject) {
         if self.numberInput.text!.containsString("Enter") || self.numberInput.text!.containsString("Zero") {
-            self.romanOutput.text! = "Zero can not be the firts!"
+            self.romanOutput.text! = "Zero can not be the first!"
         } else {
             self.numberInput.text! += "0"
         }
@@ -170,6 +170,7 @@ class NumberToRomanViewController: UIViewController {
             self.romanOutput.text! = ""
         } else if !self.numberInput.text!.containsString("Enter") && self.numberInput.text!.characters.count > 0 {
             self.numberInput.text! = String(self.numberInput.text!.characters.dropLast())
+            self.romanOutput.text! = ""
         }
     }
     
@@ -179,13 +180,14 @@ class NumberToRomanViewController: UIViewController {
     }
     
     @IBAction func convertTapped(sender: AnyObject) {
-        
-        
-        if Int(self.numberInput.text!)! >= 2000 {
-            self.romanOutput.text = "Enter smaller number"
-        } else if Int(self.numberInput.text!)! == 0 {
+        if self.numberInput.text!.containsString("Enter") {
+            self.numberInput.text! = "Enter number, please"
+            
+        } else if self.numberInput.text! == "" || Int(self.numberInput.text!)! == 0 {
             self.romanOutput.text = "Zero is nothing"
             self.numberInput.text! = ""
+        } else if Int(self.numberInput.text!)! >= 2000 {
+            self.romanOutput.text = "Enter smaller number"
         } else {
             let converterRespound = self.converter.convertNumberToRomanNumber(Int(self.numberInput.text!)!)
 
