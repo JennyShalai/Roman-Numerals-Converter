@@ -24,7 +24,7 @@ class NumberConverter {
         let romanString = romanNumber.uppercaseString
         
         // roman string validator
-        let romanRegularExpression = "^M{0,1}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"
+        let romanRegularExpression = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"
         let romanPredicate = NSPredicate(format: "SELF MATCHES %@", romanRegularExpression)
         
         
@@ -106,15 +106,10 @@ class NumberConverter {
                 }
             }
             
-            if number > 1000 {
-                print("Converter does not operate with numbers greater than 1000 or there is incorrect roman numeral")
-                return 9999
-            }
-            
             return number
             
         } else {
-            print("Not valid roman string")
+            // print("Not valid roman string")
             return 9999
         }
     }

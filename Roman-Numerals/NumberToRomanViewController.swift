@@ -12,42 +12,24 @@ class NumberToRomanViewController: UIViewController {
 
     
     @IBOutlet weak var wrapperView: UIView!
-    @IBOutlet weak var romanResult: UILabel!
-    @IBOutlet weak var minNumber: UILabel!
-    @IBOutlet weak var maxNumber: UILabel!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var sliderValue: UILabel!
+    @IBOutlet weak var wrapperStackView: UIStackView!
+    @IBOutlet weak var numberInput: UILabel!
+    @IBOutlet weak var romanOutput: UILabel!
+    @IBOutlet weak var convertButton: UIButton!
     
     let converter = NumberConverter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-                self.setConstraints()
-        self.romanResult.text = "D"
-        self.sliderValue.text = "500"
+        self.setConstraints()
+       
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NumberToRomanViewController.orientationChanged), name: UIDeviceOrientationDidChangeNotification, object: nil)
+       
         
 
     }
     
-    
-    
-    @IBAction func sliderValueChanged(sender: AnyObject) {
-        self.romanResult.text = self.converter.convertNumberToRomanNumber(Int(self.slider.value))
-        self.sliderValue.text = "\(Int(self.slider.value))"
-    }
-    
-    
-    func orientationChanged() {
-        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
-            print("!!!!!!!!!!!!!!!!!!!!!!LANDSCAPE")
-        }
-        
-        
-        
-    }
 
     func setConstraints() {
         
@@ -61,46 +43,35 @@ class NumberToRomanViewController: UIViewController {
         self.wrapperView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
         self.wrapperView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
         
-        // set slider constraints
-        self.slider.removeConstraints(self.slider.constraints)
-        self.slider.translatesAutoresizingMaskIntoConstraints = false
-        self.slider.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.slider.centerYAnchor.constraintEqualToAnchor(self.wrapperView.centerYAnchor).active = true
-        self.slider.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.9).active = true
-        self.slider.heightAnchor.constraintEqualToConstant(31).active = true
+        self.wrapperStackView.removeConstraints(self.wrapperStackView.constraints)
+        self.wrapperStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.wrapperStackView.topAnchor.constraintEqualToAnchor(self.wrapperView.centerYAnchor).active = true
+        self.wrapperStackView.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.35).active = true
+        self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor).active = true
         
-        // set labels constraints
-        self.minNumber.removeConstraints(self.minNumber.constraints)
-        self.minNumber.translatesAutoresizingMaskIntoConstraints = false
-        self.minNumber.bottomAnchor.constraintEqualToAnchor(self.slider.topAnchor, constant: -10).active = true
-        self.minNumber.leftAnchor.constraintEqualToAnchor(self.slider.leftAnchor).active = true
-        self.minNumber.widthAnchor.constraintEqualToConstant(50).active = true
-        self.minNumber.heightAnchor.constraintEqualToConstant(20).active = true
+        self.romanOutput.removeConstraints(self.romanOutput.constraints)
+        self.romanOutput.translatesAutoresizingMaskIntoConstraints = false
+        self.romanOutput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.romanOutput.bottomAnchor.constraintEqualToAnchor(self.wrapperView.centerYAnchor, constant: -5).active = true
+        self.romanOutput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
+        self.romanOutput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.2).active = true
         
-        self.maxNumber.removeConstraints(self.maxNumber.constraints)
-        self.maxNumber.translatesAutoresizingMaskIntoConstraints = false
-        self.maxNumber.bottomAnchor.constraintEqualToAnchor(self.slider.topAnchor, constant: -10).active = true
-        self.maxNumber.rightAnchor.constraintEqualToAnchor(self.slider.rightAnchor).active = true
-        self.maxNumber.widthAnchor.constraintEqualToConstant(50).active = true
-        self.maxNumber.heightAnchor.constraintEqualToConstant(20).active = true
+        self.numberInput.removeConstraints(self.numberInput.constraints)
+        self.numberInput.translatesAutoresizingMaskIntoConstraints = false
+        self.numberInput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.numberInput.bottomAnchor.constraintEqualToAnchor(self.romanOutput.topAnchor, constant: -5).active = true
+        self.numberInput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
+        self.numberInput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.2).active = true
         
-        // set result label
-        self.romanResult.removeConstraints(self.romanResult.constraints)
-        self.romanResult.translatesAutoresizingMaskIntoConstraints = false
-        self.romanResult.bottomAnchor.constraintEqualToAnchor(self.slider.topAnchor, constant: -50).active = true
-        self.romanResult.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.romanResult.heightAnchor.constraintEqualToConstant(100).active = true
-        self.romanResult.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.95).active = true
+        self.convertButton.removeConstraints(self.convertButton.constraints)
+        self.convertButton.translatesAutoresizingMaskIntoConstraints = false
+        self.convertButton.topAnchor.constraintEqualToAnchor(self.wrapperStackView.bottomAnchor, constant: 10).active = true
+        self.convertButton.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.convertButton.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
+        self.convertButton.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.5).active = true
         
-        // set sliderValue label
-        self.sliderValue.removeConstraints(self.sliderValue.constraints)
-        self.sliderValue.translatesAutoresizingMaskIntoConstraints = false
-        self.sliderValue.topAnchor.constraintEqualToAnchor(self.slider.bottomAnchor, constant: 50).active = true
-        self.sliderValue.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.sliderValue.heightAnchor.constraintEqualToConstant(100).active = true
-        self.sliderValue.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.95).active = true
-        
-        //self.view.layoutIfNeeded()
+
     }
     
     override func didReceiveMemoryWarning() {

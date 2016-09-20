@@ -18,9 +18,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setConstraints()
-        let converter = NumberConverter()
-        print(converter.convertRomanNumberToNumber("VIII"))
-        
     }
     
     
