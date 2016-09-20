@@ -175,6 +175,19 @@ class NumberToRomanViewController: UIViewController {
     
     @IBAction func clearTapped(sender: AnyObject) {
         self.numberInput.text! = "Enter Number upto 3000"
+        self.romanOutput.text! = ""
+    }
+    
+    @IBAction func convertTapped(sender: AnyObject) {
+        
+        
+        if Int(self.numberInput.text!)! >= 4000 {
+            self.romanOutput.text = "Enter smaller number"
+        } else {
+            let converterRespound = self.converter.convertNumberToRomanNumber(Int(self.numberInput.text!)!)
+
+            self.romanOutput.text = converterRespound
+        }
     }
     
     
