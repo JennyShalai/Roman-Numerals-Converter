@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O01-ah-6SS">
-                                <rect key="frame" x="0.0" y="0.0" width="134" height="151"/>
+                                <rect key="frame" x="0.0" y="164" width="134" height="151"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCX-W2-2aw">
-                                        <rect key="frame" x="49" y="67" width="46" height="30"/>
+                                        <rect key="frame" x="44" y="61" width="46" height="30"/>
                                         <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -32,10 +32,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wos-1d-UeR">
-                                <rect key="frame" x="158" y="68" width="142" height="154"/>
+                                <rect key="frame" x="158" y="163" width="142" height="154"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubp-P6-dfR">
-                                        <rect key="frame" x="48" y="69" width="46" height="30"/>
+                                        <rect key="frame" x="48" y="62" width="46" height="30"/>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.81176470590000005" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -45,15 +45,31 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Enjoy free converter from a roman numeral to a number and back! " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eag-9h-YhS" userLabel="Top text">
+                                <rect key="frame" x="40" y="56" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Wanna know how to make converter like this? Check out my Github and blog!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muX-J4-tk0" userLabel="Bottom text">
+                                <rect key="frame" x="40" y="332" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="bottomTextView" destination="muX-J4-tk0" id="LBA-eG-c3W"/>
                         <outlet property="leftView" destination="O01-ah-6SS" id="m5H-3x-U5g"/>
                         <outlet property="numToRoman" destination="FCX-W2-2aw" id="ynW-YE-50N"/>
                         <outlet property="rightView" destination="wos-1d-UeR" id="Xvn-kO-6VX"/>
                         <outlet property="romToNumber" destination="ubp-P6-dfR" id="cc3-Px-Pdq"/>
+                        <outlet property="topTextView" destination="eag-9h-YhS" id="BQb-vC-vQ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gn8-Ih-f48" userLabel="First Responder" sceneMemberID="firstResponder"/>

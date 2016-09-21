@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var romToNumber: UIButton!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var rightView: UIView!
+    @IBOutlet weak var topTextView: UITextView!
+    @IBOutlet weak var bottomTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +57,22 @@ class MainViewController: UIViewController {
         self.romToNumber.centerYAnchor.constraintEqualToAnchor(self.rightView.centerYAnchor).active = true
         self.romToNumber.heightAnchor.constraintEqualToConstant(150).active = true
         self.romToNumber.widthAnchor.constraintEqualToAnchor(self.rightView.widthAnchor, multiplier: 0.8).active = true
+        
+        // top text
+        self.topTextView.removeConstraints(self.topTextView.constraints)
+        self.topTextView.translatesAutoresizingMaskIntoConstraints = false
+        self.topTextView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.2).active = true
+        self.topTextView.bottomAnchor.constraintEqualToAnchor(self.romToNumber.topAnchor, constant: -10).active = true
+        self.topTextView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.8).active = true
+        self.topTextView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        
+        // bottom text
+        self.bottomTextView.removeConstraints(self.bottomTextView.constraints)
+        self.bottomTextView.translatesAutoresizingMaskIntoConstraints = false
+        self.bottomTextView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.2).active = true
+        self.bottomTextView.topAnchor.constraintEqualToAnchor(self.romToNumber.bottomAnchor, constant: 10).active = true
+        self.bottomTextView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.8).active = true
+        self.bottomTextView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
     }
     
     @IBAction func numToRomanButtonTapped(sender: AnyObject) {
