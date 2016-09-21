@@ -27,11 +27,10 @@ class NumberToRomanViewController: UIViewController {
         self.romanOutput.text = ""
         self.numberInput.adjustsFontSizeToFitWidth = true
         self.romanOutput.adjustsFontSizeToFitWidth = true
-       
     }
     
 
-    func setConstraints() {
+    private func setConstraints() {
         
         self.view.removeConstraints(self.view.constraints)
         
@@ -45,34 +44,31 @@ class NumberToRomanViewController: UIViewController {
         
         self.numberInput.removeConstraints(self.numberInput.constraints)
         self.numberInput.translatesAutoresizingMaskIntoConstraints = false
-        self.numberInput.topAnchor.constraintEqualToAnchor(self.wrapperView.topAnchor, constant: 25).active = true
+        self.numberInput.topAnchor.constraintEqualToAnchor(self.wrapperView.topAnchor, constant: 30).active = true
         self.numberInput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
         self.numberInput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
-        self.numberInput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.15).active = true
+        self.numberInput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
         
         self.romanOutput.removeConstraints(self.romanOutput.constraints)
         self.romanOutput.translatesAutoresizingMaskIntoConstraints = false
         self.romanOutput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.romanOutput.topAnchor.constraintEqualToAnchor(self.numberInput.bottomAnchor, constant: 5).active = true
+        self.romanOutput.topAnchor.constraintEqualToAnchor(self.numberInput.bottomAnchor, constant: 10).active = true
         self.romanOutput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
-        self.romanOutput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.15).active = true
+        self.romanOutput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
 
         self.wrapperStackView.removeConstraints(self.wrapperStackView.constraints)
         self.wrapperStackView.translatesAutoresizingMaskIntoConstraints = false
-        self.wrapperStackView.topAnchor.constraintEqualToAnchor(self.romanOutput.bottomAnchor, constant: 20).active = true
+        self.wrapperStackView.topAnchor.constraintEqualToAnchor(self.romanOutput.bottomAnchor, constant: 10).active = true
         self.wrapperStackView.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
         self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.5).active = true
         self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
         
         self.goBackButton.removeConstraints(self.goBackButton.constraints)
         self.goBackButton.translatesAutoresizingMaskIntoConstraints = false
-        self.goBackButton.topAnchor.constraintEqualToAnchor(self.wrapperStackView.bottomAnchor, constant: 20).active = true
+        self.goBackButton.bottomAnchor.constraintEqualToAnchor(self.wrapperView.bottomAnchor, constant: -20).active = true
         self.goBackButton.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.goBackButton.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.05).active = true
+        self.goBackButton.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
         self.goBackButton.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.5).active = true
-       
-        
-
     }
     
     @IBAction func oneTapped(sender: AnyObject) {
@@ -189,8 +185,6 @@ class NumberToRomanViewController: UIViewController {
     @IBAction func goBackTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
     
     private func validation() {
         if self.numberInput.text!.containsString("Enter") {
