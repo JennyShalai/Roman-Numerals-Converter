@@ -14,7 +14,7 @@ class RomanToNumberViewController: UIViewController {
     @IBOutlet weak var wrapperStackView: UIStackView!
     @IBOutlet weak var romanInput: UILabel!
     @IBOutlet weak var numberOutput: UILabel!
-    @IBOutlet weak var convertButton: UIButton!
+    
     
     let converter = NumberConverter()
     
@@ -22,13 +22,10 @@ class RomanToNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setConstraints()
-        self.romanInput.text = "Enter Roman Number"
+        self.romanInput.text = "Enter roman number"
         self.numberOutput.text = ""
         self.romanInput.adjustsFontSizeToFitWidth = true
         self.numberOutput.adjustsFontSizeToFitWidth = true
-        
-        
-        
     }
     
     func setConstraints() {
@@ -63,85 +60,81 @@ class RomanToNumberViewController: UIViewController {
         self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.4).active = true
         self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier:  0.8).active = true
         
-        self.convertButton.removeConstraints(self.convertButton.constraints)
-        self.convertButton.translatesAutoresizingMaskIntoConstraints = false
-        self.convertButton.topAnchor.constraintEqualToAnchor(self.wrapperStackView.bottomAnchor, constant: 10).active = true
-        self.convertButton.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.convertButton.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
-        self.convertButton.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.5).active = true
-        
+                
     
     }
     
     @IBAction func iTapped(sender: AnyObject) {
-        self.numberOutput.text! = ""
         if self.romanInput.text!.containsString("Enter") {
             self.romanInput.text! = "I"
         } else {
             self.romanInput.text! += "I"
         }
+        self.validation()
     }
     
     @IBAction func vTapped(sender: AnyObject) {
-        self.numberOutput.text! = ""
         if self.romanInput.text!.containsString("Enter") {
             self.romanInput.text! = "V"
         } else {
             self.romanInput.text! += "V"
         }
+        self.validation()
     }
     
     @IBAction func xTapped(sender: AnyObject) {
-        self.numberOutput.text! = ""
         if self.romanInput.text!.containsString("Enter") {
             self.romanInput.text! = "X"
         } else {
             self.romanInput.text! += "X"
         }
+        self.validation()
     }
     
     @IBAction func lTapped(sender: AnyObject) {
-        self.numberOutput.text! = ""
         if self.romanInput.text!.containsString("Enter") {
             self.romanInput.text! = "L"
         } else {
             self.romanInput.text! += "L"
         }
+        self.validation()
     }
     
     @IBAction func cTapped(sender: AnyObject) {
-        self.numberOutput.text! = ""
         if self.romanInput.text!.containsString("Enter") {
             self.romanInput.text! = "C"
         } else {
             self.romanInput.text! += "C"
         }
+        self.validation()
     }
     
     @IBAction func dTapped(sender: AnyObject) {
-        self.numberOutput.text! = ""
         if self.romanInput.text!.containsString("Enter") {
             self.romanInput.text! = "D"
         } else {
             self.romanInput.text! += "D"
         }
+        self.validation()
     }
     
     @IBAction func mTapped(sender: AnyObject) {
-        self.numberOutput.text! = ""
         if self.romanInput.text!.containsString("Enter") {
             self.romanInput.text! = "M"
         } else {
             self.romanInput.text! += "M"
         }
+        self.validation()
     }
     
     // delete last char in Roman string
     @IBAction func delTapped(sender: AnyObject) {
         if !self.romanInput.text!.containsString("Enter") && self.romanInput.text!.characters.count == 1 {
-            self.romanInput.text! = "Enter Roman Number"
+            self.romanInput.text! = "Enter roman number"
+            self.numberOutput.text! = ""
         } else if !self.romanInput.text!.containsString("Enter") && self.romanInput.text!.characters.count > 0 {
             self.romanInput.text! = String(self.romanInput.text!.characters.dropLast())
+            self.validation()
         }
     }
     
@@ -151,13 +144,13 @@ class RomanToNumberViewController: UIViewController {
         
     }
     
-    @IBAction func convertTapped(sender: AnyObject) {
+    private func validation() {
         let converterRespound = self.converter.convertRomanNumberToNumber(self.romanInput.text!)
         
         if converterRespound == 9999 {
             self.numberOutput.text = "Not valid number"
         } else if converterRespound == 9998 {
-            self.numberOutput.text = "Convert upto 1000"
+            self.numberOutput.text = "Convert up to 1000"
         } else {
             self.numberOutput.text = "\(converterRespound)"
         }

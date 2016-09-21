@@ -203,14 +203,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXh-jt-Pfc">
-                                        <rect key="frame" x="75" y="267" width="61" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="convert"/>
-                                        <connections>
-                                            <action selector="convertTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PDc-9P-Kre"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -219,7 +211,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="convertButton" destination="bXh-jt-Pfc" id="vrr-iS-h5F"/>
                         <outlet property="numberInput" destination="aAp-Rs-G5Y" id="BhR-bE-4yR"/>
                         <outlet property="romanOutput" destination="Mdh-Sx-pTk" id="cKF-12-2tU"/>
                         <outlet property="wrapperStackView" destination="34z-fz-ip4" id="g2j-dc-avQ"/>
@@ -257,14 +248,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cp9-h4-OxD">
-                                        <rect key="frame" x="125" y="401" width="71" height="30"/>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="CONVERT"/>
-                                        <connections>
-                                            <action selector="convertTapped:" destination="fM5-fE-802" eventType="touchUpInside" id="5fB-sO-NB6"/>
-                                        </connections>
-                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Nd-GB-9VG">
                                         <rect key="frame" x="28" y="246" width="129" height="180"/>
                                         <subviews>
@@ -367,7 +350,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="convertButton" destination="Cp9-h4-OxD" id="lgn-2e-acK"/>
                         <outlet property="numberOutput" destination="HDl-il-pp7" id="nyn-sx-DWf"/>
                         <outlet property="romanInput" destination="Yd7-5f-CYM" id="fAP-gU-8il"/>
                         <outlet property="wrapperStackView" destination="1Nd-GB-9VG" id="z3X-ug-3wV"/>
