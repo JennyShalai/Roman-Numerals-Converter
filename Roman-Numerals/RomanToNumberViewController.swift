@@ -14,6 +14,7 @@ class RomanToNumberViewController: UIViewController {
     @IBOutlet weak var wrapperStackView: UIStackView!
     @IBOutlet weak var romanInput: UILabel!
     @IBOutlet weak var numberOutput: UILabel!
+    @IBOutlet weak var goBackButton: UIButton!
     
     
     let converter = NumberConverter()
@@ -60,6 +61,14 @@ class RomanToNumberViewController: UIViewController {
         self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.4).active = true
         self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier:  0.8).active = true
         
+        self.goBackButton.removeConstraints(self.goBackButton.constraints)
+        self.goBackButton.translatesAutoresizingMaskIntoConstraints = false
+        self.goBackButton.topAnchor.constraintEqualToAnchor(self.wrapperStackView.bottomAnchor, constant: 20).active = true
+        self.goBackButton.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.goBackButton.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.05).active = true
+        self.goBackButton.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier:  0.5).active = true
+        
+
                 
     
     }
@@ -143,6 +152,12 @@ class RomanToNumberViewController: UIViewController {
     @IBAction func infoTapped(sender: AnyObject) {
         
     }
+    
+    @IBAction func goBackTapped(sender: AnyObject) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     private func validation() {
         let converterRespound = self.converter.convertRomanNumberToNumber(self.romanInput.text!)

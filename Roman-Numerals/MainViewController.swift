@@ -20,13 +20,10 @@ class MainViewController: UIViewController {
         self.setConstraints()
     }
     
-    
-    
     func setConstraints() {
         
         self.view.removeConstraints(self.view.constraints)
-        self.view.translatesAutoresizingMaskIntoConstraints = false
-        
+
         // left wrapper view
         self.leftView.removeConstraints(self.leftView.constraints)
         self.leftView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,10 +55,7 @@ class MainViewController: UIViewController {
         self.romToNumber.centerYAnchor.constraintEqualToAnchor(self.rightView.centerYAnchor).active = true
         self.romToNumber.heightAnchor.constraintEqualToConstant(150).active = true
         self.romToNumber.widthAnchor.constraintEqualToAnchor(self.rightView.widthAnchor, multiplier: 0.8).active = true
-        
-        self.view.layoutIfNeeded()
     }
-    
     
     @IBAction func numToRomanButtonTapped(sender: AnyObject) {
         let nextViewController = self.storyboard!.instantiateViewControllerWithIdentifier("NumberToRomanViewController")

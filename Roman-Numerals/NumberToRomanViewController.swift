@@ -15,6 +15,7 @@ class NumberToRomanViewController: UIViewController {
     @IBOutlet weak var wrapperStackView: UIStackView!
     @IBOutlet weak var numberInput: UILabel!
     @IBOutlet weak var romanOutput: UILabel!
+    @IBOutlet weak var goBackButton: UIButton!
     
     
     let converter = NumberConverter()
@@ -63,7 +64,12 @@ class NumberToRomanViewController: UIViewController {
         self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.5).active = true
         self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
         
-        
+        self.goBackButton.removeConstraints(self.goBackButton.constraints)
+        self.goBackButton.translatesAutoresizingMaskIntoConstraints = false
+        self.goBackButton.topAnchor.constraintEqualToAnchor(self.wrapperStackView.bottomAnchor, constant: 20).active = true
+        self.goBackButton.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
+        self.goBackButton.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.05).active = true
+        self.goBackButton.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.5).active = true
        
         
 
@@ -178,6 +184,13 @@ class NumberToRomanViewController: UIViewController {
         self.numberInput.text! = "Enter number up to 1999"
         self.romanOutput.text! = ""
     }
+    
+    
+    @IBAction func goBackTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     
     private func validation() {
         if self.numberInput.text!.containsString("Enter") {
