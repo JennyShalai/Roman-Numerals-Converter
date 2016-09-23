@@ -11,17 +11,17 @@ import Foundation
 class NumberConverter {
     
     // PUBLIC METHOD // convertation number into Roman string
-    func convertNumberToRomanNumber(number: Int) -> String {
+    func convertNumberToRomanNumber(_ number: Int) -> String {
         let arrayDigits = self.convertNumberToArrayOfDigits(number)
         let convertNumber = self.convertArrayOfDigitsToRomanNumber(arrayDigits)
         return convertNumber
     }
     
     // PUBLIC METHOD // convertation Roman string into number
-    func convertRomanNumberToNumber(romanNumber: String) -> Int {
+    func convertRomanNumberToNumber(_ romanNumber: String) -> Int {
         
         // normalise roman string
-        let romanString = romanNumber.uppercaseString
+        let romanString = romanNumber.uppercased()
         
         // roman string validator
         let romanRegularExpression = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"
@@ -29,12 +29,12 @@ class NumberConverter {
         
         
         // if input roman string is valid do:
-        if romanPredicate.evaluateWithObject(romanNumber) {
+        if romanPredicate.evaluate(with: romanNumber) {
             
             // result
             var number: Int = 0
             // split string into chars
-            let romanArray = Array(romanString.characters.reverse())
+            let romanArray = Array(romanString.characters.reversed())
             
             var isFive = false
             var isTen = false
@@ -116,7 +116,7 @@ class NumberConverter {
     
 
     // splite number into single digits
-    private func convertNumberToArrayOfDigits(number: Int) -> [Int] {
+    fileprivate func convertNumberToArrayOfDigits(_ number: Int) -> [Int] {
         var num = number
         var result: [Int] = []
         while num > 0 {
@@ -127,7 +127,7 @@ class NumberConverter {
     }
     
     // convert each digit of ariginal numer itno Roman style
-    private func convertArrayOfDigitsToRomanNumber(arrayDigits: [Int]) -> String {
+    fileprivate func convertArrayOfDigitsToRomanNumber(_ arrayDigits: [Int]) -> String {
         var result = ""
         if arrayDigits.count > 3 {
             result += "M"
@@ -155,7 +155,7 @@ class NumberConverter {
     }
     
     // "drawing" the current digit into Roman style
-    private func convertDigitToRoman(digitToConvert: Int, letter: [String]) -> String {
+    fileprivate func convertDigitToRoman(_ digitToConvert: Int, letter: [String]) -> String {
         var digit = digitToConvert
         var result = "";
         if digit == 9 {

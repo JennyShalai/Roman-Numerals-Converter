@@ -16,6 +16,13 @@ class RomanToNumberViewController: UIViewController {
     @IBOutlet weak var numberOutput: UILabel!
     @IBOutlet weak var goBackButton: UIButton!
     
+    @IBOutlet weak var iButton: UIButton!
+    @IBOutlet weak var vButton: UIButton!
+    @IBOutlet weak var xButton: UIButton!
+    @IBOutlet weak var lButton: UIButton!
+    @IBOutlet weak var cButton: UIButton!
+    @IBOutlet weak var dButton: UIButton!
+    @IBOutlet weak var mButton: UIButton!
     
     let converter = NumberConverter()
     
@@ -29,119 +36,126 @@ class RomanToNumberViewController: UIViewController {
         self.numberOutput.adjustsFontSizeToFitWidth = true
     }
     
-    private func setConstraints() {
+    fileprivate func setConstraints() {
     
         self.view.removeConstraints(self.view.constraints)
         
         self.wrapperView.removeConstraints(self.wrapperView.constraints)
         self.wrapperView.translatesAutoresizingMaskIntoConstraints = false
-        self.wrapperView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
-        self.wrapperView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-        self.wrapperView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
-        self.wrapperView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
+        self.wrapperView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        self.wrapperView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.wrapperView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        self.wrapperView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         
         self.romanInput.removeConstraints(self.romanInput.constraints)
         self.romanInput.translatesAutoresizingMaskIntoConstraints = false
-        self.romanInput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.romanInput.topAnchor.constraintEqualToAnchor(self.wrapperView.topAnchor, constant: 30).active = true
-        self.romanInput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
-        self.romanInput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.15).active = true
+        self.romanInput.centerXAnchor.constraint(equalTo: self.wrapperView.centerXAnchor).isActive = true
+        self.romanInput.topAnchor.constraint(equalTo: self.wrapperView.topAnchor, constant: 30).isActive = true
+        self.romanInput.widthAnchor.constraint(equalTo: self.wrapperView.widthAnchor, multiplier: 0.8).isActive = true
+        self.romanInput.heightAnchor.constraint(equalTo: self.wrapperView.heightAnchor, multiplier: 0.15).isActive = true
         
         self.numberOutput.removeConstraints(self.numberOutput.constraints)
         self.numberOutput.translatesAutoresizingMaskIntoConstraints = false
-        self.numberOutput.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.numberOutput.topAnchor.constraintEqualToAnchor(self.romanInput.bottomAnchor, constant: 10).active = true
-        self.numberOutput.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier: 0.8).active = true
-        self.numberOutput.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.15).active = true
+        self.numberOutput.centerXAnchor.constraint(equalTo: self.wrapperView.centerXAnchor).isActive = true
+        self.numberOutput.topAnchor.constraint(equalTo: self.romanInput.bottomAnchor, constant: 10).isActive = true
+        self.numberOutput.widthAnchor.constraint(equalTo: self.wrapperView.widthAnchor, multiplier: 0.8).isActive = true
+        self.numberOutput.heightAnchor.constraint(equalTo: self.wrapperView.heightAnchor, multiplier: 0.15).isActive = true
         
         self.wrapperStackView.removeConstraints(self.wrapperStackView.constraints)
         self.wrapperStackView.translatesAutoresizingMaskIntoConstraints = false
-        self.wrapperStackView.topAnchor.constraintEqualToAnchor(self.numberOutput.bottomAnchor, constant: 10).active = true
-        self.wrapperStackView.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.wrapperStackView.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.4).active = true
-        self.wrapperStackView.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier:  0.8).active = true
+        self.wrapperStackView.topAnchor.constraint(equalTo: self.numberOutput.bottomAnchor, constant: 10).isActive = true
+        self.wrapperStackView.centerXAnchor.constraint(equalTo: self.wrapperView.centerXAnchor).isActive = true
+        self.wrapperStackView.heightAnchor.constraint(equalTo: self.wrapperView.heightAnchor, multiplier: 0.4).isActive = true
+        self.wrapperStackView.widthAnchor.constraint(equalTo: self.wrapperView.widthAnchor, multiplier:  0.8).isActive = true
         
         self.goBackButton.removeConstraints(self.goBackButton.constraints)
         self.goBackButton.translatesAutoresizingMaskIntoConstraints = false
-        self.goBackButton.bottomAnchor.constraintEqualToAnchor(self.wrapperView.bottomAnchor, constant: -20).active = true
-        self.goBackButton.centerXAnchor.constraintEqualToAnchor(self.wrapperView.centerXAnchor).active = true
-        self.goBackButton.heightAnchor.constraintEqualToAnchor(self.wrapperView.heightAnchor, multiplier: 0.1).active = true
-        self.goBackButton.widthAnchor.constraintEqualToAnchor(self.wrapperView.widthAnchor, multiplier:  0.5).active = true
+        self.goBackButton.bottomAnchor.constraint(equalTo: self.wrapperView.bottomAnchor, constant: -20).isActive = true
+        self.goBackButton.centerXAnchor.constraint(equalTo: self.wrapperView.centerXAnchor).isActive = true
+        self.goBackButton.heightAnchor.constraint(equalTo: self.wrapperView.heightAnchor, multiplier: 0.1).isActive = true
+        self.goBackButton.widthAnchor.constraint(equalTo: self.wrapperView.widthAnchor, multiplier:  0.5).isActive = true
         
 
                 
     
     }
     
-    @IBAction func iTapped(sender: AnyObject) {
-        if self.romanInput.text!.containsString("Enter") {
+    @IBAction func iTapped(_ sender: AnyObject) {
+        if self.romanInput.text!.contains("Enter") {
             self.romanInput.text! = "I"
         } else {
             self.romanInput.text! += "I"
         }
+        self.validToDesable(self.romanInput.text!)
         self.validation()
     }
     
-    @IBAction func vTapped(sender: AnyObject) {
-        if self.romanInput.text!.containsString("Enter") {
+    @IBAction func vTapped(_ sender: AnyObject) {
+        if self.romanInput.text!.contains("Enter") {
             self.romanInput.text! = "V"
         } else {
             self.romanInput.text! += "V"
         }
+        self.validToDesable(self.romanInput.text!)
         self.validation()
     }
     
-    @IBAction func xTapped(sender: AnyObject) {
-        if self.romanInput.text!.containsString("Enter") {
+    @IBAction func xTapped(_ sender: AnyObject) {
+        if self.romanInput.text!.contains("Enter") {
             self.romanInput.text! = "X"
         } else {
             self.romanInput.text! += "X"
         }
+        self.validToDesable(self.romanInput.text!)
         self.validation()
     }
     
-    @IBAction func lTapped(sender: AnyObject) {
-        if self.romanInput.text!.containsString("Enter") {
+    @IBAction func lTapped(_ sender: AnyObject) {
+        if self.romanInput.text!.contains("Enter") {
             self.romanInput.text! = "L"
         } else {
             self.romanInput.text! += "L"
         }
+        self.validToDesable(self.romanInput.text!)
         self.validation()
     }
     
-    @IBAction func cTapped(sender: AnyObject) {
-        if self.romanInput.text!.containsString("Enter") {
+    @IBAction func cTapped(_ sender: AnyObject) {
+        if self.romanInput.text!.contains("Enter") {
             self.romanInput.text! = "C"
         } else {
             self.romanInput.text! += "C"
         }
+        self.validToDesable(self.romanInput.text!)
         self.validation()
     }
     
-    @IBAction func dTapped(sender: AnyObject) {
-        if self.romanInput.text!.containsString("Enter") {
+    @IBAction func dTapped(_ sender: AnyObject) {
+        if self.romanInput.text!.contains("Enter") {
             self.romanInput.text! = "D"
         } else {
             self.romanInput.text! += "D"
         }
+        self.validToDesable(self.romanInput.text!)
         self.validation()
     }
     
-    @IBAction func mTapped(sender: AnyObject) {
-        if self.romanInput.text!.containsString("Enter") {
+    @IBAction func mTapped(_ sender: AnyObject) {
+        if self.romanInput.text!.contains("Enter") {
             self.romanInput.text! = "M"
         } else {
             self.romanInput.text! += "M"
         }
+        self.validToDesable(self.romanInput.text!)
         self.validation()
     }
     
     // delete last char in Roman string
-    @IBAction func delTapped(sender: AnyObject) {
-        if !self.romanInput.text!.containsString("Enter") && self.romanInput.text!.characters.count == 1 {
+    @IBAction func delTapped(_ sender: AnyObject) {
+        if !self.romanInput.text!.contains("Enter") && self.romanInput.text!.characters.count == 1 {
             self.romanInput.text! = "Enter roman number"
             self.numberOutput.text! = ""
-        } else if !self.romanInput.text!.containsString("Enter") && self.romanInput.text!.characters.count > 0 {
+        } else if !self.romanInput.text!.contains("Enter") && self.romanInput.text!.characters.count > 0 {
             self.romanInput.text! = String(self.romanInput.text!.characters.dropLast())
             self.validation()
         }
@@ -149,19 +163,67 @@ class RomanToNumberViewController: UIViewController {
     
     
     
-    @IBAction func infoTapped(sender: AnyObject) {
+    @IBAction func infoTapped(_ sender: AnyObject) {
         self.romanInput.text! = "Enter roman number"
         self.numberOutput.text! = ""
+        self.validToDesable("")
         
     }
     
-    @IBAction func goBackTapped(sender: AnyObject) {
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func goBackTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
+    fileprivate func validToDesable(_ romanNumber: String) {
+        
+        let romanRegularExpression = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"
+        let romanPredicate = NSPredicate(format: "SELF MATCHES %@", romanRegularExpression)
+        
+        
+        if !romanPredicate.evaluate(with: self.romanInput.text! + "I") {
+            self.iButton.isEnabled = false
+        } else {
+            self.iButton.isEnabled = true
+        }
+        
+        if !romanPredicate.evaluate(with: self.romanInput.text! + "V") {
+            self.vButton.isEnabled = false
+        } else {
+            self.vButton.isEnabled = true
+        }
+        
+        if !romanPredicate.evaluate(with: self.romanInput.text! + "X") {
+            self.xButton.isEnabled = false
+        } else {
+            self.xButton.isEnabled = true
+        }
+        
+        if !romanPredicate.evaluate(with: self.romanInput.text! + "L") {
+            self.lButton.isEnabled = false
+        } else {
+            self.lButton.isEnabled = true
+        }
+        
+        if !romanPredicate.evaluate(with: self.romanInput.text! + "C") {
+            self.cButton.isEnabled = false
+        } else {
+            self.cButton.isEnabled = true
+        }
+        
+        if !romanPredicate.evaluate(with: self.romanInput.text! + "D") {
+            self.dButton.isEnabled = false
+        } else {
+            self.dButton.isEnabled = true
+        }
+        
+        if !romanPredicate.evaluate(with: self.romanInput.text! + "M") {
+            self.mButton.isEnabled = false
+        } else {
+            self.mButton.isEnabled = true
+        }
+    }
     
-    private func validation() {
+    fileprivate func validation() {
         let converterRespound = self.converter.convertRomanNumberToNumber(self.romanInput.text!)
         
         if converterRespound == 9999 {

@@ -29,61 +29,61 @@ class MainViewController: UIViewController {
         // left wrapper view
         self.leftView.removeConstraints(self.leftView.constraints)
         self.leftView.translatesAutoresizingMaskIntoConstraints = false
-        self.leftView.topAnchor.constraintEqualToAnchor(self.view.topAnchor).active = true
-        self.leftView.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor).active = true
-        self.leftView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
-        self.leftView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.5).active = true
+        self.leftView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.leftView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        self.leftView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        self.leftView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5).isActive = true
         
         // right wrapper view
         self.rightView.removeConstraints(self.rightView.constraints)
         self.rightView.translatesAutoresizingMaskIntoConstraints = false
-        self.rightView.topAnchor.constraintEqualToAnchor(self.view.topAnchor).active = true
-        self.rightView.rightAnchor.constraintEqualToAnchor(self.view.rightAnchor).active = true
-        self.rightView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
-        self.rightView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.5).active = true
+        self.rightView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.rightView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        self.rightView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        self.rightView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5).isActive = true
         
         // button "from numbers to roman numerals"
         self.numToRoman.removeConstraints(self.numToRoman.constraints)
         self.numToRoman.translatesAutoresizingMaskIntoConstraints = false
-        self.numToRoman.centerXAnchor.constraintEqualToAnchor(self.leftView.centerXAnchor).active = true
-        self.numToRoman.centerYAnchor.constraintEqualToAnchor(self.leftView.centerYAnchor).active = true
-        self.numToRoman.heightAnchor.constraintEqualToConstant(150).active = true
-        self.numToRoman.widthAnchor.constraintEqualToAnchor(self.leftView.widthAnchor, multiplier: 0.8).active = true
+        self.numToRoman.centerXAnchor.constraint(equalTo: self.leftView.centerXAnchor).isActive = true
+        self.numToRoman.centerYAnchor.constraint(equalTo: self.leftView.centerYAnchor).isActive = true
+        self.numToRoman.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        self.numToRoman.widthAnchor.constraint(equalTo: self.leftView.widthAnchor, multiplier: 0.8).isActive = true
         
         // buton "from roman numerals to numbers"
         self.romToNumber.removeConstraints(self.romToNumber.constraints)
         self.romToNumber.translatesAutoresizingMaskIntoConstraints = false
-        self.romToNumber.centerXAnchor.constraintEqualToAnchor(self.rightView.centerXAnchor).active = true
-        self.romToNumber.centerYAnchor.constraintEqualToAnchor(self.rightView.centerYAnchor).active = true
-        self.romToNumber.heightAnchor.constraintEqualToConstant(150).active = true
-        self.romToNumber.widthAnchor.constraintEqualToAnchor(self.rightView.widthAnchor, multiplier: 0.8).active = true
+        self.romToNumber.centerXAnchor.constraint(equalTo: self.rightView.centerXAnchor).isActive = true
+        self.romToNumber.centerYAnchor.constraint(equalTo: self.rightView.centerYAnchor).isActive = true
+        self.romToNumber.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        self.romToNumber.widthAnchor.constraint(equalTo: self.rightView.widthAnchor, multiplier: 0.8).isActive = true
         
         // top text
         self.topTextView.removeConstraints(self.topTextView.constraints)
         self.topTextView.translatesAutoresizingMaskIntoConstraints = false
-        self.topTextView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.2).active = true
-        self.topTextView.bottomAnchor.constraintEqualToAnchor(self.romToNumber.topAnchor, constant: -10).active = true
-        self.topTextView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.8).active = true
-        self.topTextView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        self.topTextView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.2).isActive = true
+        self.topTextView.bottomAnchor.constraint(equalTo: self.romToNumber.topAnchor, constant: -10).isActive = true
+        self.topTextView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8).isActive = true
+        self.topTextView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         // bottom text
         self.bottomTextView.removeConstraints(self.bottomTextView.constraints)
         self.bottomTextView.translatesAutoresizingMaskIntoConstraints = false
-        self.bottomTextView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.2).active = true
-        self.bottomTextView.topAnchor.constraintEqualToAnchor(self.romToNumber.bottomAnchor, constant: 10).active = true
-        self.bottomTextView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.8).active = true
-        self.bottomTextView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        self.bottomTextView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.2).isActive = true
+        self.bottomTextView.topAnchor.constraint(equalTo: self.romToNumber.bottomAnchor, constant: 10).isActive = true
+        self.bottomTextView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8).isActive = true
+        self.bottomTextView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
-    @IBAction func numToRomanButtonTapped(sender: AnyObject) {
-        let nextViewController = self.storyboard!.instantiateViewControllerWithIdentifier("NumberToRomanViewController")
-        self.presentViewController(nextViewController, animated:true, completion:nil)
+    @IBAction func numToRomanButtonTapped(_ sender: AnyObject) {
+        let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: "NumberToRomanViewController")
+        self.present(nextViewController, animated:true, completion:nil)
     }
     
     
-    @IBAction func romToNumberButtonTapped(sender: AnyObject) {
-        let nextViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RomanToNumberViewController")
-        self.presentViewController(nextViewController, animated:true, completion:nil)
+    @IBAction func romToNumberButtonTapped(_ sender: AnyObject) {
+        let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: "RomanToNumberViewController")
+        self.present(nextViewController, animated:true, completion:nil)
     }
     
 }
