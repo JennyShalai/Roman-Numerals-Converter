@@ -98,7 +98,7 @@ class RomanToNumberViewController: UIViewController {
     
     private func setButtonDesign(button: UIButton) {
         button.backgroundColor = UIColor.clear
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 20
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.gray.cgColor
     }

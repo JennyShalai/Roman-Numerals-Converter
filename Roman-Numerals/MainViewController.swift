@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
     }
     
     private func setConstraints() {
-        
+        // reset storyboard constraints
         self.view.removeConstraints(self.view.constraints)
 
         // left wrapper view
@@ -62,7 +62,7 @@ class MainViewController: UIViewController {
         // top text
         self.topTextView.removeConstraints(self.topTextView.constraints)
         self.topTextView.translatesAutoresizingMaskIntoConstraints = false
-        self.topTextView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.2).isActive = true
+        self.topTextView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.15).isActive = true
         self.topTextView.bottomAnchor.constraint(equalTo: self.romToNumber.topAnchor, constant: -10).isActive = true
         self.topTextView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8).isActive = true
         self.topTextView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -79,13 +79,13 @@ class MainViewController: UIViewController {
     private func setButtonDesign() {
         // design for number to roman button
         self.numToRoman.backgroundColor = UIColor.clear
-        self.numToRoman.layer.cornerRadius = 5
+        self.numToRoman.layer.cornerRadius = 35
         self.numToRoman.layer.borderWidth = 1
         self.numToRoman.layer.borderColor = UIColor.gray.cgColor
         
         // design for roman to numbers button
         self.romToNumber.backgroundColor = UIColor.clear
-        self.romToNumber.layer.cornerRadius = 5
+        self.romToNumber.layer.cornerRadius = 35
         self.romToNumber.layer.borderWidth = 1
         self.romToNumber.layer.borderColor = UIColor.gray.cgColor
     }

@@ -30,6 +30,8 @@ class NumberToRomanViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     
+    var isBigInputNumber: Bool = false
+    
     let converter = NumberConverter()
     
     override func viewDidLoad() {
@@ -106,9 +108,9 @@ class NumberToRomanViewController: UIViewController {
     }
     
     private func setButtonDesign(button: UIButton) {
-    
+        // design for buttons
         button.backgroundColor = UIColor.clear
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 20
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.gray.cgColor
     }
@@ -118,6 +120,8 @@ class NumberToRomanViewController: UIViewController {
     @IBAction func oneTapped(_ sender: AnyObject) {
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "1"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "1"
         }
@@ -128,6 +132,8 @@ class NumberToRomanViewController: UIViewController {
     @IBAction func twoTapped(_ sender: AnyObject) {
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "2"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "2"
         }
@@ -137,6 +143,8 @@ class NumberToRomanViewController: UIViewController {
     @IBAction func threeTapped(_ sender: AnyObject) {
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "3"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "3"
         }
@@ -146,6 +154,8 @@ class NumberToRomanViewController: UIViewController {
     @IBAction func fourTapped(_ sender: AnyObject) {
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "4"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "4"
         }
@@ -155,6 +165,8 @@ class NumberToRomanViewController: UIViewController {
     @IBAction func fiveTapped(_ sender: AnyObject) {
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "5"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "5"
         }
@@ -162,18 +174,22 @@ class NumberToRomanViewController: UIViewController {
     }
     
     @IBAction func sixTapped(_ sender: AnyObject) {
-        self.romanOutput.text! = ""
+        //self.romanOutput.text! = ""
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "6"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "6"
         }
         self.validation()
     }
     @IBAction func sevenTapped(_ sender: AnyObject) {
-        self.romanOutput.text! = ""
+        //self.romanOutput.text! = ""
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "7"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "7"
         }
@@ -181,9 +197,11 @@ class NumberToRomanViewController: UIViewController {
     }
     
     @IBAction func eightTapped(_ sender: AnyObject) {
-        self.romanOutput.text! = ""
+        //self.romanOutput.text! = ""
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "8"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "8"
         }
@@ -192,9 +210,11 @@ class NumberToRomanViewController: UIViewController {
     
     
     @IBAction func nineTapped(_ sender: AnyObject) {
-        self.romanOutput.text! = ""
+        //self.romanOutput.text! = ""
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "9"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "9"
         }
@@ -204,6 +224,8 @@ class NumberToRomanViewController: UIViewController {
     @IBAction func zeroTapped(_ sender: AnyObject) {
         if self.numberInput.text!.contains("Enter") || self.numberInput.text!.contains("Zero") {
             self.romanOutput.text! = "Zero can not be the first!"
+        } else if self.isBigInputNumber {
+            return
         } else {
             self.numberInput.text! += "0"
             self.validation()
@@ -230,7 +252,14 @@ class NumberToRomanViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    fileprivate func validation() {
+    private func validation() {
+        
+        if Int(self.numberInput.text!)! > 2000 {
+            self.isBigInputNumber = true
+        } else {
+            self.isBigInputNumber = false
+        }
+        
         if self.numberInput.text!.contains("Enter") {
             self.numberInput.text! = "Enter number, please!"
         } else if self.numberInput.text! == "" || Int(self.numberInput.text!)! == 0 {
