@@ -20,9 +20,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setConstraints()
+        self.setButtonDesign()
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         
         self.view.removeConstraints(self.view.constraints)
 
@@ -48,7 +49,7 @@ class MainViewController: UIViewController {
         self.numToRoman.centerXAnchor.constraint(equalTo: self.leftView.centerXAnchor).isActive = true
         self.numToRoman.centerYAnchor.constraint(equalTo: self.leftView.centerYAnchor).isActive = true
         self.numToRoman.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        self.numToRoman.widthAnchor.constraint(equalTo: self.leftView.widthAnchor, multiplier: 0.8).isActive = true
+        self.numToRoman.widthAnchor.constraint(equalTo: self.leftView.widthAnchor, multiplier: 0.9).isActive = true
         
         // buton "from roman numerals to numbers"
         self.romToNumber.removeConstraints(self.romToNumber.constraints)
@@ -56,7 +57,7 @@ class MainViewController: UIViewController {
         self.romToNumber.centerXAnchor.constraint(equalTo: self.rightView.centerXAnchor).isActive = true
         self.romToNumber.centerYAnchor.constraint(equalTo: self.rightView.centerYAnchor).isActive = true
         self.romToNumber.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        self.romToNumber.widthAnchor.constraint(equalTo: self.rightView.widthAnchor, multiplier: 0.8).isActive = true
+        self.romToNumber.widthAnchor.constraint(equalTo: self.rightView.widthAnchor, multiplier: 0.9).isActive = true
         
         // top text
         self.topTextView.removeConstraints(self.topTextView.constraints)
@@ -73,6 +74,20 @@ class MainViewController: UIViewController {
         self.bottomTextView.topAnchor.constraint(equalTo: self.romToNumber.bottomAnchor, constant: 10).isActive = true
         self.bottomTextView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8).isActive = true
         self.bottomTextView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
+    
+    private func setButtonDesign() {
+        // design for number to roman button
+        self.numToRoman.backgroundColor = UIColor.clear
+        self.numToRoman.layer.cornerRadius = 5
+        self.numToRoman.layer.borderWidth = 1
+        self.numToRoman.layer.borderColor = UIColor.gray.cgColor
+        
+        // design for roman to numbers button
+        self.romToNumber.backgroundColor = UIColor.clear
+        self.romToNumber.layer.cornerRadius = 5
+        self.romToNumber.layer.borderWidth = 1
+        self.romToNumber.layer.borderColor = UIColor.gray.cgColor
     }
     
     @IBAction func numToRomanButtonTapped(_ sender: AnyObject) {

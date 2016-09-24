@@ -17,21 +17,32 @@ class NumberToRomanViewController: UIViewController {
     @IBOutlet weak var romanOutput: UILabel!
     @IBOutlet weak var goBackButton: UIButton!
     
+    @IBOutlet weak var oneButton: UIButton!
+    @IBOutlet weak var twoButton: UIButton!
+    @IBOutlet weak var threeButton: UIButton!
+    @IBOutlet weak var fiveButton: UIButton!
+    @IBOutlet weak var foreButton: UIButton!
+    @IBOutlet weak var sixButton: UIButton!
+    @IBOutlet weak var sevenButton: UIButton!
+    @IBOutlet weak var eightButton: UIButton!
+    @IBOutlet weak var nineButton: UIButton!
+    @IBOutlet weak var zeroButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
     
     let converter = NumberConverter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setConstraints()
-        self.numberInput.text = "Enter number up to 1999"
-        self.romanOutput.text = ""
-        self.numberInput.adjustsFontSizeToFitWidth = true
-        self.romanOutput.adjustsFontSizeToFitWidth = true
+        self.setButtonSettings()
+        
     }
     
 
-    fileprivate func setConstraints() {
+    private func setConstraints() {
         
+        // remove storyboard constraints
         self.view.removeConstraints(self.view.constraints)
         
         // container view
@@ -42,6 +53,7 @@ class NumberToRomanViewController: UIViewController {
         self.wrapperView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
         self.wrapperView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         
+        // label for display user's input
         self.numberInput.removeConstraints(self.numberInput.constraints)
         self.numberInput.translatesAutoresizingMaskIntoConstraints = false
         self.numberInput.topAnchor.constraint(equalTo: self.wrapperView.topAnchor, constant: 30).isActive = true
@@ -49,6 +61,7 @@ class NumberToRomanViewController: UIViewController {
         self.numberInput.widthAnchor.constraint(equalTo: self.wrapperView.widthAnchor, multiplier: 0.8).isActive = true
         self.numberInput.heightAnchor.constraint(equalTo: self.wrapperView.heightAnchor, multiplier: 0.1).isActive = true
         
+        // label for display output result
         self.romanOutput.removeConstraints(self.romanOutput.constraints)
         self.romanOutput.translatesAutoresizingMaskIntoConstraints = false
         self.romanOutput.centerXAnchor.constraint(equalTo: self.wrapperView.centerXAnchor).isActive = true
@@ -56,6 +69,7 @@ class NumberToRomanViewController: UIViewController {
         self.romanOutput.widthAnchor.constraint(equalTo: self.wrapperView.widthAnchor, multiplier: 0.8).isActive = true
         self.romanOutput.heightAnchor.constraint(equalTo: self.wrapperView.heightAnchor, multiplier: 0.1).isActive = true
 
+        // container for numbers
         self.wrapperStackView.removeConstraints(self.wrapperStackView.constraints)
         self.wrapperStackView.translatesAutoresizingMaskIntoConstraints = false
         self.wrapperStackView.topAnchor.constraint(equalTo: self.romanOutput.bottomAnchor, constant: 10).isActive = true
@@ -63,6 +77,7 @@ class NumberToRomanViewController: UIViewController {
         self.wrapperStackView.heightAnchor.constraint(equalTo: self.wrapperView.heightAnchor, multiplier: 0.5).isActive = true
         self.wrapperStackView.widthAnchor.constraint(equalTo: self.wrapperView.widthAnchor, multiplier: 0.8).isActive = true
         
+        // "back" button
         self.goBackButton.removeConstraints(self.goBackButton.constraints)
         self.goBackButton.translatesAutoresizingMaskIntoConstraints = false
         self.goBackButton.bottomAnchor.constraint(equalTo: self.wrapperView.bottomAnchor, constant: -20).isActive = true
@@ -70,6 +85,35 @@ class NumberToRomanViewController: UIViewController {
         self.goBackButton.heightAnchor.constraint(equalTo: self.wrapperView.heightAnchor, multiplier: 0.1).isActive = true
         self.goBackButton.widthAnchor.constraint(equalTo: self.wrapperView.widthAnchor, multiplier: 0.5).isActive = true
     }
+    
+    private func setButtonSettings() {
+        self.numberInput.text = "Enter number up to 1999"
+        self.romanOutput.text = ""
+        self.numberInput.adjustsFontSizeToFitWidth = true
+        self.romanOutput.adjustsFontSizeToFitWidth = true
+        self.setButtonDesign(button: self.oneButton)
+        self.setButtonDesign(button: self.twoButton)
+        self.setButtonDesign(button: self.threeButton)
+        self.setButtonDesign(button: self.foreButton)
+        self.setButtonDesign(button: self.fiveButton)
+        self.setButtonDesign(button: self.sixButton)
+        self.setButtonDesign(button: self.sevenButton)
+        self.setButtonDesign(button: self.eightButton)
+        self.setButtonDesign(button: self.nineButton)
+        self.setButtonDesign(button: self.zeroButton)
+        self.setButtonDesign(button: self.deleteButton)
+        self.setButtonDesign(button: self.clearButton)
+    }
+    
+    private func setButtonDesign(button: UIButton) {
+    
+        button.backgroundColor = UIColor.clear
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.gray.cgColor
+    }
+    
+    
     
     @IBAction func oneTapped(_ sender: AnyObject) {
         if self.numberInput.text!.contains("Enter") {

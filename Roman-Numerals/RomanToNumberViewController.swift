@@ -23,6 +23,8 @@ class RomanToNumberViewController: UIViewController {
     @IBOutlet weak var cButton: UIButton!
     @IBOutlet weak var dButton: UIButton!
     @IBOutlet weak var mButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     let converter = NumberConverter()
     
@@ -30,10 +32,7 @@ class RomanToNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setConstraints()
-        self.romanInput.text = "Enter roman number"
-        self.numberOutput.text = ""
-        self.romanInput.adjustsFontSizeToFitWidth = true
-        self.numberOutput.adjustsFontSizeToFitWidth = true
+        self.setButtonSettings()
     }
     
     fileprivate func setConstraints() {
@@ -79,6 +78,31 @@ class RomanToNumberViewController: UIViewController {
                 
     
     }
+    
+    private func setButtonSettings() {
+    
+        self.romanInput.text = "Enter roman number"
+        self.numberOutput.text = ""
+        self.romanInput.adjustsFontSizeToFitWidth = true
+        self.numberOutput.adjustsFontSizeToFitWidth = true
+        self.setButtonDesign(button: self.iButton)
+        self.setButtonDesign(button: self.vButton)
+        self.setButtonDesign(button: self.xButton)
+        self.setButtonDesign(button: self.cButton)
+        self.setButtonDesign(button: self.lButton)
+        self.setButtonDesign(button: self.mButton)
+        self.setButtonDesign(button: self.dButton)
+        self.setButtonDesign(button: self.clearButton)
+        self.setButtonDesign(button: self.deleteButton)
+    }
+    
+    private func setButtonDesign(button: UIButton) {
+        button.backgroundColor = UIColor.clear
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.gray.cgColor
+    }
+
     
     @IBAction func iTapped(_ sender: AnyObject) {
         if self.romanInput.text!.contains("Enter") {
@@ -155,10 +179,13 @@ class RomanToNumberViewController: UIViewController {
         if !self.romanInput.text!.contains("Enter") && self.romanInput.text!.characters.count == 1 {
             self.romanInput.text! = "Enter roman number"
             self.numberOutput.text! = ""
+            self.validToDesable("")
         } else if !self.romanInput.text!.contains("Enter") && self.romanInput.text!.characters.count > 0 {
             self.romanInput.text! = String(self.romanInput.text!.characters.dropLast())
+            self.validToDesable(self.romanInput.text!)
             self.validation()
         }
+        
     }
     
     
@@ -179,44 +206,43 @@ class RomanToNumberViewController: UIViewController {
         let romanRegularExpression = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"
         let romanPredicate = NSPredicate(format: "SELF MATCHES %@", romanRegularExpression)
         
-        
-        if !romanPredicate.evaluate(with: self.romanInput.text! + "I") {
+        if !romanPredicate.evaluate(with: romanNumber + "I") {
             self.iButton.isEnabled = false
         } else {
             self.iButton.isEnabled = true
         }
         
-        if !romanPredicate.evaluate(with: self.romanInput.text! + "V") {
+        if !romanPredicate.evaluate(with: romanNumber + "V") {
             self.vButton.isEnabled = false
         } else {
             self.vButton.isEnabled = true
         }
         
-        if !romanPredicate.evaluate(with: self.romanInput.text! + "X") {
+        if !romanPredicate.evaluate(with: romanNumber + "X") {
             self.xButton.isEnabled = false
         } else {
             self.xButton.isEnabled = true
         }
         
-        if !romanPredicate.evaluate(with: self.romanInput.text! + "L") {
+        if !romanPredicate.evaluate(with: romanNumber + "L") {
             self.lButton.isEnabled = false
         } else {
             self.lButton.isEnabled = true
         }
         
-        if !romanPredicate.evaluate(with: self.romanInput.text! + "C") {
+        if !romanPredicate.evaluate(with: romanNumber + "C") {
             self.cButton.isEnabled = false
         } else {
             self.cButton.isEnabled = true
         }
         
-        if !romanPredicate.evaluate(with: self.romanInput.text! + "D") {
+        if !romanPredicate.evaluate(with: romanNumber + "D") {
             self.dButton.isEnabled = false
         } else {
             self.dButton.isEnabled = true
         }
         
-        if !romanPredicate.evaluate(with: self.romanInput.text! + "M") {
+        if !romanPredicate.evaluate(with: romanNumber + "M") {
             self.mButton.isEnabled = false
         } else {
             self.mButton.isEnabled = true
