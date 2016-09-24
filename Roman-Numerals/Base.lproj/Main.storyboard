@@ -27,7 +27,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.46218681335449219" green="0.94240599870681763" blue="0.080979548394680023" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <state key="normal" title="7 -&gt; VII"/>
+                                        <state key="normal" title="7 → VII"/>
                                         <connections>
                                             <action selector="numToRomanButtonTapped:" destination="hgJ-gY-TfR" eventType="touchUpInside" id="fyu-96-462"/>
                                         </connections>
@@ -44,7 +44,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.81176470590000005" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <state key="normal" title="IX -&gt; 9"/>
+                                        <state key="normal" title="IX → 9"/>
                                         <connections>
                                             <action selector="romToNumberButtonTapped:" destination="hgJ-gY-TfR" eventType="touchUpInside" id="9q7-z4-q4g"/>
                                         </connections>
